@@ -5,10 +5,11 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
 
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
+
       - name: Run normal CI
         run: echo ${{ github.event_name }}
 
-        if: ${{ github.event_name == 'pull_request' }}
       - name: Run normal CI
         run: echo ${{ github.sha }}
